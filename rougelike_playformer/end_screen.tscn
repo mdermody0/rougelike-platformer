@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg2riqh13vd0p"]
+
+[ext_resource type="Script" uid="uid://dkj7wkeh0cbyy" path="res://scripts/end_screen.gd" id="1_my301"]
+[ext_resource type="Texture2D" uid="uid://dht80olkky6pv" path="res://assets/endscreen.jpg" id="2_xu7hh"]
+[ext_resource type="FontFile" uid="uid://od7rsar65c0p" path="res://assets/Bold Move.ttf" id="3_xu7hh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xu7hh"]
+texture = ExtResource("2_xu7hh")
+modulate_color = Color(0.6745098, 0.6745098, 0.6745098, 1)
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_my301")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xu7hh")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 145.0
+offset_right = 1006.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xu7hh")
+theme_override_font_sizes/font_size = 58
+text = "Thank you for playing"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 140.0
+offset_right = 999.0
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("3_xu7hh")
+theme_override_font_sizes/font_size = 58
+text = "Thank you for playing"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="menu" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Main Menu"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/menu" to="." method="_on_menu_pressed"]

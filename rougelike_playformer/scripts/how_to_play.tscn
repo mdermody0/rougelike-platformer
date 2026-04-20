@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://2carvrkieldr"]
+
+[ext_resource type="Script" uid="uid://dtg71jl1v28yx" path="res://scripts/how_to_play.gd" id="1_m5wio"]
+[ext_resource type="Texture2D" uid="uid://dx1xguxextowl" path="res://assets/Splash screen.jpg" id="1_mrwlg"]
+[ext_resource type="FontFile" uid="uid://od7rsar65c0p" path="res://assets/Bold Move.ttf" id="2_ak5jb"]
+[ext_resource type="Texture2D" uid="uid://be2dascdym8et" path="res://assets/player.png" id="3_ak5jb"]
+[ext_resource type="Texture2D" uid="uid://by2i6lgvik2rb" path="res://assets/bird.png" id="4_vaeer"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaeer"]
+texture = ExtResource("1_mrwlg")
+modulate_color = Color(0.6756453, 0.6756453, 0.6756453, 1)
+
+[sub_resource type="Theme" id="Theme_m5wio"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5wio"]
+texture = ExtResource("3_ak5jb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acqfb"]
+texture = ExtResource("4_vaeer")
+
+[node name="How to play" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5wio")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vaeer")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -266.0
+offset_right = 413.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ak5jb")
+theme_override_font_sizes/font_size = 58
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -274.0
+offset_right = 225.5
+offset_bottom = -209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ak5jb")
+theme_override_font_sizes/font_size = 58
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = 494.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 116
+
+[node name="MenuButton" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_m5wio")
+text = "Main Menu"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 177.0
+offset_top = 152.0
+offset_right = 260.0
+offset_bottom = -388.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m5wio")
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 12.0
+offset_right = 954.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 20
+text = "This is your player character. You can use the left and right arrows to move them.
+The spacebar can be used to jump. 
+If you get hit by an enemy or fall in a pit the game resets to the beginning."
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 303.0
+offset_right = 1047.0
+offset_bottom = 398.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_acqfb")
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = -844.0
+offset_top = 5.0
+offset_right = -36.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 19
+text = "This is the enemy character. These birds spawn randomly throughout the game.
+There are two types of attacks. One is where the move back and forth across the screen.
+The other is where they dive down trying to hit you."
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 458.0
+offset_right = 929.0
+offset_bottom = 486.0
+theme_override_font_sizes/font_size = 19
+text = "Your Objective is to reach your house at the end of the level without dying."
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

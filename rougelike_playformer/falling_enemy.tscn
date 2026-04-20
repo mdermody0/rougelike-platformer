@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://lqgybvdxwkiu"]
+
+[ext_resource type="PackedScene" uid="uid://orhavqu8ene7" path="res://killzone.tscn" id="1_dqg3l"]
+[ext_resource type="Texture2D" uid="uid://b8y71dqaahun6" path="res://assets/bird-Sheet-export.png" id="1_h37ao"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24t0o"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(0, 0, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca8jy"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(241, 0, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hkoq"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(482, 0, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo5ka"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(723, 0, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yani4"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(0, 216, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goyup"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(241, 216, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcyqp"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(482, 216, 241, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5xt"]
+atlas = ExtResource("1_h37ao")
+region = Rect2(723, 216, 241, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v772m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24t0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca8jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hkoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo5ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yani4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goyup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcyqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w5xt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h37ao"]
+radius = 16.0
+
+[sub_resource type="GDScript" id="GDScript_24t0o"]
+script/source = "extends RayCast2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca8jy"]
+radius = 13.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.9999995, -14)
+rotation = 1.5516303
+scale = Vector2(0.16182575, 0.20370372)
+sprite_frames = SubResource("SpriteFrames_v772m")
+frame = 3
+frame_progress = 0.9114297
+
+[node name="Killzone" parent="." instance=ExtResource("1_dqg3l")]
+position = Vector2(-13, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(15, -20)
+shape = SubResource("CircleShape2D_h37ao")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(1, -16)
+target_position = Vector2(19, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(1, -16)
+target_position = Vector2(-19, 0)
+script = SubResource("GDScript_24t0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -19)
+shape = SubResource("CircleShape2D_ca8jy")

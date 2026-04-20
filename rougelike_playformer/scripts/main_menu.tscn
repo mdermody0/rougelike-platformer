@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3n58yof0h2x6"]
+
+[ext_resource type="Script" uid="uid://b36507wfmpvf6" path="res://main_menu.gd" id="1_brnl1"]
+[ext_resource type="Texture2D" uid="uid://dx1xguxextowl" path="res://assets/Splash screen.jpg" id="2_qqsp2"]
+[ext_resource type="FontFile" uid="uid://od7rsar65c0p" path="res://assets/Bold Move.ttf" id="3_lyibd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onb27"]
+texture = ExtResource("2_qqsp2")
+modulate_color = Color(0.6756453, 0.6756453, 0.6756453, 1)
+
+[sub_resource type="Theme" id="Theme_cyejb"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brnl1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_onb27")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -385.0
+offset_top = -148.0
+offset_right = 398.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lyibd")
+theme_override_font_sizes/font_size = 58
+text = "Rougelike Platformer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -135.0
+offset_right = 82.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_lyibd")
+theme_override_font_sizes/font_size = 58
+text = "Rougelike Platformer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 109
+
+[node name="HowToPlay" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "How to play"
+
+[node name="StartButton" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cyejb")
+text = "Start"
+
+[node name="Quit" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_cyejb")
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/HowToPlay" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
