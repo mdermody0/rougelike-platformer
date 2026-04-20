@@ -75,6 +75,15 @@ text = "How To Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 252.0
+offset_top = 426.0
+offset_right = 936.0
+offset_bottom = 453.0
+theme_override_font_sizes/font_size = 19
+text = "Your Objective is to reach your house at the end of the level without dying."
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 13
@@ -96,34 +105,52 @@ layout_mode = 2
 theme = SubResource("Theme_m5wio")
 text = "Main Menu"
 
-[node name="Container" type="Container" parent="."]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 100.0
+offset_bottom = 100.0
 
-[node name="Panel2" type="Panel" parent="Container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
 layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CenterContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 112.22)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_m5wio")
 
-[node name="Label" type="Label" parent="Container/Panel2"]
+[node name="Label" type="Label" parent="CenterContainer2/HBoxContainer/Panel2"]
 layout_mode = 0
-offset_left = 169.0
-offset_top = 12.0
-offset_right = 954.0
-offset_bottom = 102.0
+offset_left = 253.0
+offset_top = 147.0
+offset_right = 1038.0
+offset_bottom = 237.0
 theme_override_font_sizes/font_size = 20
 text = "This is your player character. You can use the left and right arrows to move them.
 The spacebar can be used to jump. 
 If you get hit by an enemy or fall in a pit the game resets to the beginning."
 
-[node name="Panel3" type="Panel" parent="Container"]
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer3"]
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="CenterContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_acqfb")
 
-[node name="Label" type="Label" parent="Container/Panel3"]
+[node name="Label" type="Label" parent="CenterContainer3/HBoxContainer/Panel3"]
 layout_mode = 0
 offset_left = -844.0
 offset_top = 5.0
@@ -133,14 +160,5 @@ theme_override_font_sizes/font_size = 19
 text = "This is the enemy character. These birds spawn randomly throughout the game.
 There are two types of attacks. One is where the move back and forth across the screen.
 The other is where they dive down trying to hit you."
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 245.0
-offset_top = 458.0
-offset_right = 929.0
-offset_bottom = 486.0
-theme_override_font_sizes/font_size = 19
-text = "Your Objective is to reach your house at the end of the level without dying."
 
 [connection signal="pressed" from="CenterContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
