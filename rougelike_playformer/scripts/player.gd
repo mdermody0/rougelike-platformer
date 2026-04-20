@@ -13,7 +13,7 @@ var victory = false
 
 func _ready() -> void:
 #	eventHandler.connect("resetPlayer", Callable(self,"_on_enemyHit"))
-	position.x = 23000
+	position.x = -2
 	position.y = 0
 
 

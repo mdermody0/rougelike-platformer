@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onb27"]
 texture = ExtResource("2_qqsp2")
-modulate_color = Color(0.6756453, 0.6756453, 0.6756453, 1)
+modulate_color = Color(0.675645, 0.675645, 0.675645, 1)
 
 [sub_resource type="Theme" id="Theme_cyejb"]
 
